@@ -8,3 +8,5 @@ angular.module('fireblogApp', ['firebase'])
         controller: 'MainCtrl'
       .otherwise
         redirectTo: '/'
+
+  .value('FirebaseUrl', 'https://glenmaddern.firebaseio.com')

@@ -1,12 +1,9 @@
 'use strict'
 
-angular.module('fireblogApp')
-  .controller 'MainCtrl', ($scope, angularFire) ->
-    $scope.posts = angularFire('https://glenmaddern.firebaseio.com/posts', $scope, 'posts', []);
-#    $scope.awesomeThings.then ->
-#      console.log "returned!"
-#      $scope.$watch 'awesomeThings', ->
-#        console.log "changed!"
+angular.module('fireblogApp').controller 'MainCtrl',
+  ($scope, angularFire, FirebaseUrl, FirebaseHelpers) ->
+    $scope.posts = angularFire(FirebaseUrl + "/posts", $scope, 'posts', {});
 
     $scope.addNewThing = ->
-      $scope.posts.push($scope.newThing)
+      $scope.posts[FirebaseHelpers.timestampedKey()] =
+        title: $scope.newThing
