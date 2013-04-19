@@ -2,7 +2,10 @@
   <h1>'Allo, 'Allo!</h1>
   <p>You now have</p>
   <ul>
-      <li ng-repeat="(key,thing) in posts">key: {{key}}, thing: {{thing}}</li>
+      <li ng-repeat="(key,post) in posts">
+        {{post}}
+        <a href="#/posts/{{key}}">edit</a>
+      </li>
   </ul>
   <form ng-submit="addNewThing()">
     <input type='text' ng-model="newThing">

@@ -1,13 +1,13 @@
 'use strict'
 
-angular.module('fireblogApp', ['firebase'])
+angular.module('fireblogApp', ['firebase', 'ngSanitize'])
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
-      .when '/posts',
-        templateUrl: 'views/posts.html',
+      .when '/posts/:id',
+        templateUrl: 'views/post.html',
         controller: 'PostsCtrl'
       .otherwise
         redirectTo: '/'
