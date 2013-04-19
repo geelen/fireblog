@@ -1,13 +1,16 @@
-<div>
-  <p ng-hide='post'>Loading...</p>
+<p ng-hide='post'>Loading...</p>
 
-  <h1 ng-model='post.title' contenteditable="true"></h1>
+<div ng-show='post'>
   <label>
-    <p>Published at</p>
-    <input type="date" name="published_at" ng-model="published_at">
+    <p>Title:</p>
+    <input ng-model='post.title'>
+  </label>
+  <label>
+    <p>Published at:</p>
+    <input type="date" name="published_at" ng-model="post.published_at">
   </label>
 
-  <h2>Slug: /</h2>
+  <h2>Slug: {{ post.slug }}</h2>
   <textarea cols="80" rows="20" ng-show='post' ng-model='post.body'>
 
 </div>
