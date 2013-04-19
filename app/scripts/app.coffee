@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('fireblogApp', [])
+angular.module('fireblogApp', ['firebase'])
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
