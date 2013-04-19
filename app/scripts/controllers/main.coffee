@@ -7,3 +7,6 @@ angular.module('fireblogApp').controller 'MainCtrl',
     $scope.addNewThing = ->
       $scope.posts[FirebaseApi.timestampedKey()] =
         title: $scope.newThing
+
+    $scope.clearPosts = ->
+      $scope.posts = {}
