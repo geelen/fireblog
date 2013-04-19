@@ -1,1 +1,3 @@
-<p>This is the posts/show view.</p>
+<h1>{{post.title}}</h1>
+<h3>{{post.published_at}}</h3>
+<p ng-bind-html-unsafe="post.body | markdown"></p>

@@ -1,11 +1,11 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
+  <h1>FIREBLOG</h1>
   <ul>
       <li ng-repeat="(key,post) in posts">
-        {{post}}
+        <a href="#/{{post.slug}}">
+          {{post.title}}
+        </a>
         <a href="#/posts/{{key}}">edit</a>
-        <a href="#/{{post.slug}}">view</a>
       </li>
   </ul>
   <form ng-submit="addNewThing()">

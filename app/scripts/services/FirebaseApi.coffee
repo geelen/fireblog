@@ -6,6 +6,7 @@ angular.module('fireblogApp').factory 'FirebaseApi',
     {
       # doesn't insert anything, just returns a timestamped key
       timestampedKey: -> baseRef.push().name()
-      resource: (scope, scopeName, resourcePath) ->
-        angularFire("#{FirebaseUrl}#{resourcePath}", scope, scopeName, {});
+      resource: (scope, scopeName, resourcePath, type) ->
+        type = {} if !type?
+        angularFire("#{FirebaseUrl}#{resourcePath}", scope, scopeName, type);
     }
