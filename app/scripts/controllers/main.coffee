@@ -2,7 +2,8 @@
 
 angular.module('fireblogApp').controller 'MainCtrl',
   ($scope, FirebaseApi) ->
-    $scope.posts = FirebaseApi.resource($scope, 'posts', '/posts')
+    FirebaseApi.resource($scope, 'posts', '/posts').then (posts) ->
+      $scope.posts = posts
 
     $scope.addNewThing = ->
       $scope.posts[FirebaseApi.timestampedKey()] =
