@@ -1,9 +1,9 @@
 'use strict'
 
 angular.module('fireblogApp').controller 'MainCtrl',
-  ($scope, angularFire, FirebaseUrl, FirebaseHelpers) ->
-    $scope.posts = angularFire(FirebaseUrl + "/posts", $scope, 'posts', {});
+  ($scope, FirebaseApi) ->
+    $scope.posts = FirebaseApi.resource($scope, 'posts')
 
     $scope.addNewThing = ->
-      $scope.posts[FirebaseHelpers.timestampedKey()] =
+      $scope.posts[FirebaseApi.timestampedKey()] =
         title: $scope.newThing
